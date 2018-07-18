@@ -1,5 +1,5 @@
 # android-MVVM
-This is an example to demonstarte MVVM, its half done
+This is an example to demonstrate MVVM, its half done
 
 ## used libraries
 
