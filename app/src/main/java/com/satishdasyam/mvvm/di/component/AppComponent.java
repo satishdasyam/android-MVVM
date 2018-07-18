@@ -10,7 +10,9 @@ import dagger.Component;
 @ApplicationScope
 @Component(modules = {AppModule.class})
 public interface AppComponent {
+
     void inject(MvvmApp mvvmApp);
+
     void inject(SearchActivity appCompatActivity);
     //ActivityComponent newActivityComponent(ActivityModule activityModule);
 }

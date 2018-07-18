@@ -9,23 +9,16 @@ import android.view.ViewGroup;
 import com.satishdasyam.mvvm.R;
 import com.satishdasyam.mvvm.databinding.ArtistListCellBinding;
 import com.satishdasyam.mvvm.model.Search;
-import com.satishdasyam.mvvm.utils.GlideRequests;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.inject.Inject;
 
 public class ArtistListAdapter extends RecyclerView.Adapter<ArtistListAdapter.ViewHolder> {
 
     private List<Search.Artist> mArtistList;
 
-    GlideRequests mGlide;
-
-    @Inject
-    public ArtistListAdapter(GlideRequests glideRequests) {
+    public ArtistListAdapter() {
         this.mArtistList = new ArrayList<>();
-        this.mGlide = glideRequests;
     }
 
     @NonNull
@@ -39,8 +32,6 @@ public class ArtistListAdapter extends RecyclerView.Adapter<ArtistListAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.cellBinding.setArtist(mArtistList.get(position));
-        mGlide.load(mArtistList.get(position).getImageList().get(0).getUrl()).
-                into(holder.cellBinding.ivArtistImage);
     }
 
     @Override

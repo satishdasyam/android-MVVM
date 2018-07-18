@@ -11,12 +11,11 @@ import java.util.List;
 public class SearchViewModel extends ViewModel {
 
     SearchListRepo mSearchListRepo;
+    private LiveData<Search> mObservableSearchData;
 
     public SearchViewModel(SearchListRepo searchListRepo) {
         mSearchListRepo = searchListRepo;
     }
-
-    private LiveData<Search> mObservableSearchData;
 
     public LiveData<Search> getSearchData(String artistName) {
         return mObservableSearchData = mSearchListRepo.getSearchData(artistName);

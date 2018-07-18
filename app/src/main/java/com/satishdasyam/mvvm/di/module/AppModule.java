@@ -45,7 +45,9 @@ public class AppModule {
     @ApplicationScope
     @Provides
     GlideRequests provideGlide(Context context) {
-        return GlideApp.with(context).applyDefaultRequestOptions(new RequestOptions());
+        return GlideApp.with(context).applyDefaultRequestOptions(new RequestOptions()
+                .fallback(android.R.drawable.stat_notify_error)
+                .error(android.R.drawable.stat_notify_error));
     }
 
     @ApplicationScope
@@ -56,8 +58,8 @@ public class AppModule {
     }
 
     @Provides
-    ArtistListAdapter provideArtistAdapter(GlideRequests glideRequests) {
-        return new ArtistListAdapter(glideRequests);
+    ArtistListAdapter provideArtistAdapter() {
+        return new ArtistListAdapter();
     }
 
     @Provides

@@ -12,9 +12,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/search_artist"
-            android:singleLine="true"
             android:imeOptions="actionDone"
-            android:padding="@dimen/spacing_small" />
+            android:padding="@dimen/spacing_small"
+            android:singleLine="true" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_artist_list"

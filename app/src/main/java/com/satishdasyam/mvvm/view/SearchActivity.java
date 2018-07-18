@@ -1,6 +1,5 @@
 package com.satishdasyam.mvvm.view;
 
-import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
@@ -8,7 +7,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
 import android.widget.TextView;
@@ -22,15 +20,7 @@ import com.satishdasyam.mvvm.view.adapters.ArtistListAdapter;
 import com.satishdasyam.mvvm.viewmodel.SearchViewModel;
 import com.satishdasyam.mvvm.viewmodel.SearchViewModelFactory;
 
-import java.util.concurrent.Callable;
-
 import javax.inject.Inject;
-
-import io.reactivex.Single;
-import io.reactivex.SingleObserver;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
 
 public class SearchActivity extends BaseActivity {
 
@@ -42,6 +32,23 @@ public class SearchActivity extends BaseActivity {
     SearchViewModelFactory mSearchViewModelFactory;
     @Inject
     AppDatabase mAppDatabase;
+    private TextView.OnEditorActionListener actionListener = new TextView.OnEditorActionListener() {
+        @Override
+        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                mSearchViewModel.getSearchData(v.getText().toString()).observe(
+                        SearchActivity.this, new Observer<Search>() {
+                            @Override
+                            public void onChanged(@Nullable Search search) {
+                                mArtistAdapter.setArtistList(search.getResults().
+                                        getArtistsMatches().getArtistList());
+                            }
+                        });
+            }
+            v.setText("");
+            return false;
+        }
+    };
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -60,25 +67,6 @@ public class SearchActivity extends BaseActivity {
     private void setListener() {
         mBinding.evSearch.setOnEditorActionListener(actionListener);
     }
-
-
-    private TextView.OnEditorActionListener actionListener = new TextView.OnEditorActionListener() {
-        @Override
-        public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-            if (actionId == EditorInfo.IME_ACTION_DONE) {
-                mSearchViewModel.getSearchData(v.getText().toString()).observe(
-                        SearchActivity.this, new Observer<Search>() {
-                            @Override
-                            public void onChanged(@Nullable Search search) {
-                                mArtistAdapter.setArtistList(search.getResults().
-                                        getArtistsMatches().getArtistList());
-                            }
-                        });
-            }
-            v.setText("");
-            return false;
-        }
-    };
 
     private void setLayoutManager() {
         RecyclerView.LayoutManager layoutManager = new

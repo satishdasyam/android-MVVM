@@ -7,28 +7,28 @@ import java.util.List;
 public class Search {
 
     @SerializedName("results")
-    Results results;
+    private Results results;
 
     public Results getResults() {
         return results;
     }
 
     public static class Results {
+        @SerializedName("artistmatches")
+        ArtistMatches artistMatches;
+
         public ArtistMatches getArtistsMatches() {
             return artistMatches;
         }
-
-        @SerializedName("artistmatches")
-        ArtistMatches artistMatches;
     }
 
     public static class ArtistMatches {
+        @SerializedName("artist")
+        List<Artist> artistList;
+
         public List<Artist> getArtistList() {
             return artistList;
         }
-
-        @SerializedName("artist")
-        List<Artist> artistList;
     }
 
     public static class Artist {
@@ -38,6 +38,9 @@ public class Search {
 
         @SerializedName("streamable")
         boolean isStreaming;
+        @SerializedName("image")
+
+        List<Image> imageList;
 
         public String getName() {
             return name;
@@ -47,13 +50,9 @@ public class Search {
             return isStreaming;
         }
 
-        public List<Image> getImageList() {
-            return imageList;
+        public String getImage() {
+            return this.imageList.get(3).getUrl();
         }
-
-        @SerializedName("image")
-
-        List<Image> imageList;
 
         /*@Expose(serialize = false, deserialize = false)
         String xyz;*/
