@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="artist"
+            type="com.satishdasyam.mvvm.model.Search.Artist" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_small">
+
+        <TextView
+            android:id="@+id/tv_artist_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:padding="@dimen/spacing_small"
+            android:text="@{artist.name}"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/iv_artist_image"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_artist_streaming"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:padding="@dimen/spacing_small"
+            android:text="@{artist.name}"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@+id/iv_artist_image"
+            app:layout_constraintTop_toBottomOf="@id/tv_artist_name" />
+
+        <ImageView
+            android:id="@+id/iv_artist_image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+</layout>
