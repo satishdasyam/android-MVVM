@@ -10,7 +10,7 @@ public class ArtistEntity {
     @ColumnInfo(name = "is_streaming")
     boolean isStreaming;
     String image;
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "u_id")
     private int artistId;
 
