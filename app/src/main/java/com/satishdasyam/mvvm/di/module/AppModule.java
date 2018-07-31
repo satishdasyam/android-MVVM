@@ -5,6 +5,7 @@ import android.arch.persistence.room.Room;
 import android.content.Context;
 
 import com.bumptech.glide.request.RequestOptions;
+import com.satishdasyam.mvvm.BuildConfig;
 import com.satishdasyam.mvvm.di.ApplicationScope;
 import com.satishdasyam.mvvm.repository.ApiService;
 import com.satishdasyam.mvvm.repository.SearchListRepo;
@@ -31,7 +32,7 @@ public class AppModule {
     @ApplicationScope
     @Provides
     ApiService providesRetrofit() {
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(ApiService.BASE_URL).
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(BuildConfig.BASE_URL).
                 addConverterFactory(GsonConverterFactory.create()).build();
         return retrofit.create(ApiService.class);
     }

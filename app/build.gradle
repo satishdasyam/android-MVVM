@@ -16,11 +16,52 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            applicationIdSuffix ".debug"
+            debuggable true
+            buildConfigField("String", "BASE_URL", "\"http://ws.audioscrobbler.com/2.0/\"")
+            buildConfigField("String", "API_KEY", "\"fa2e62987b8c372e16daa60331164d12\"")
+        }
+        production {
+            initWith debug
+            applicationIdSuffix ".debugProd"
+        }
     }
 
     dataBinding {
         enabled true
     }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
+   /* // Specifies one flavor dimension.
+    flavorDimensions "version", "app"
+    productFlavors {
+        demo {
+            // Assigns this product flavor to the "version" flavor dimension.
+            // This property is optional if you are using only one dimension.
+            dimension "version"
+            applicationIdSuffix ".demo"
+            versionNameSuffix "-demo"
+        }
+        full {
+            dimension "version"
+            applicationIdSuffix ".full"
+            versionNameSuffix "-full"
+        }
+        news {
+            dimension "app"
+            applicationId "com.satish.news"
+        }
+        blog {
+            dimension "app"
+            applicationId "com.satish.blog"
+        }
+    }*/
 }
 
 dependencies {

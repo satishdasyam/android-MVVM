@@ -3,6 +3,7 @@ package com.satishdasyam.mvvm.repository;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 
+import com.satishdasyam.mvvm.BuildConfig;
 import com.satishdasyam.mvvm.model.Search;
 
 import java.util.HashMap;
@@ -26,14 +27,8 @@ public class SearchListRepo {
     }
 
     public LiveData<Search> getSearchData(String artistName) {
-        Map<String, String> params = new HashMap<>();
-        params.put("method", "artist.search");
-        params.put("artist", artistName);
-        params.put("api_key", ApiService.API_KEY);
-        params.put("format", "json");
-
         final MutableLiveData<Search> searchData = new MutableLiveData<>();
-        mApiService.getSearchResult(params).enqueue(new Callback<Search>() {
+        mApiService.getSearchResult(artistName, BuildConfig.API_KEY).enqueue(new Callback<Search>() {
             @Override
             public void onResponse(Call<Search> call, Response<Search> response) {
                 searchData.setValue(response.body());
