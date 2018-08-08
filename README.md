@@ -28,6 +28,13 @@ https://blog.gojekengineering.com/multi-threading-like-a-boss-in-android-with-rx
 
 http://upday.github.io/blog/mvvm_rx_common_mistakes/
 
+
+
+# Git branching
+
+https://nvie.com/posts/a-successful-git-branching-model/
+
+
 ## used libraries
 
 android architecture components
