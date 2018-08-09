@@ -1,17 +1,21 @@
 # android-MVVM
-This is an example to demonstrate MVVM
+This is an example to demonstrate MVVM with repository
+
+![Screenshot](mvvm_repository.jpeg)
 
 MVVM has mainly the following layers:
 
-## Model
-Model represents the data and business logic of the app. One of the recommended implementation strategies of this layer, is to expose its data through observables to be decoupled completely from ViewModel or any other observer/consumer.
+## Repository
+The repository serves as the communication bridge between the data and the rest of the app.
 
 ## ViewModel
-ViewModel interacts with model and also prepares observable(s) that can be observed by a View. ViewModel can optionally provide hooks for the view to pass events to the model. 
-One of the important implementation strategies of this layer is to decouple it from the View, i.e, ViewModel should not be aware about the view who is interacting with.
+ViewModel should bridge the Repository and the View, this is also where your Business Logic lives.
 
 ## View
 Finally, the view role in this pattern is to observe (or subscribe to) a ViewModel observable to get data in order to update UI elements accordingly.
+
+https://devanshramen.com/2017/12/17/mvvm-androids-architecture-components-part-2-repository-pattern/
+
 
 # Android Helpful Links
 
