@@ -28,6 +28,8 @@ https://blog.aritraroy.in/15-tools-for-bulletproof-android-app-security-516bb8b1
 
 https://blog.aritraroy.in/30-bite-sized-pro-tips-to-become-a-better-android-developer-b311fd641089
 
+https://android.jlelse.eu/android-architecture-communication-between-viewmodel-and-view-ce14805d72bf
+
 https://android-arsenal.com/
 
 
