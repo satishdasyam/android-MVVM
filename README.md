@@ -42,6 +42,8 @@ https://blog.aritraroy.in/the-missing-rxjava-2-guide-to-supercharge-your-android
 
 https://www.androidhive.info/RxJava/rxjava-operators-introduction/
 
+https://github.com/amitshekhariitbhu/RxJava2-Android-Samples/tree/master/app/src/main/java/com/rxjava2/android/samples
+
 https://blog.gojekengineering.com/multi-threading-like-a-boss-in-android-with-rxjava-2-b8b7cf6eb5e2
 
 http://upday.github.io/blog/mvvm_rx_common_mistakes/
