@@ -14,6 +14,8 @@ ViewModel should bridge the Repository and the View, this is also where your Bus
 ## View
 Finally, the view role in this pattern is to observe (or subscribe to) a ViewModel observable to get data in order to update UI elements accordingly.
 
+https://medium.com/androiddevelopers/viewmodels-and-livedata-patterns-antipatterns-21efaef74a54
+
 https://devanshramen.com/2017/12/17/mvvm-androids-architecture-components-part-2-repository-pattern/
 
 
