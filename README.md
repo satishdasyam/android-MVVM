@@ -5,6 +5,8 @@ https://www.raywenderlich.com/7109-test-driven-development-tutorial-for-android-
 # android-MVVM
 This is an example to demonstrate MVVM with repository
 
+https://proandroiddev.com/mvvm-with-kotlin-android-architecture-components-dagger-2-retrofit-and-rxandroid-1a4ebb38c699
+
 ![Screenshot](mvvm_repository.jpeg)
 
 MVVM has mainly the following layers:
